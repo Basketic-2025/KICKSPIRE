@@ -48,7 +48,7 @@
         const heroSection = document.getElementById('hero');
         const heroShoe = document.getElementById('hero-shoe');
 
-        if(window.matchMedia("(min-width: 768px)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        if (heroSection && heroShoe && window.matchMedia("(min-width: 768px)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             heroSection.addEventListener('mousemove', (e) => {
                 const { clientX, clientY } = e;
                 const centerX = window.innerWidth / 2;

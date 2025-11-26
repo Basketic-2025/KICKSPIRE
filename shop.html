@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKSPIRE | Shop</title>
+    <meta name="description" content="Shop the latest drops from KICKSPIRE.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased selection:bg-lime-400 selection:text-black">
+
+    <!-- Top Marquee -->
+    <div class="bg-lime-400 text-black text-xs font-bold py-2 overflow-hidden whitespace-nowrap marquee-container relative z-50">
+        <div class="marquee-content flex gap-8 w-max px-4 uppercase tracking-wider">
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> • 
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> •
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> •
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-[32px] z-40 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-tighter brand-font italic relative group">
+                KICKSPIRE
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-lime-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="shop.html" class="hover:text-lime-400 transition-colors">Shop</a>
+                <a href="collection.html" class="hover:text-lime-400 transition-colors">Collections</a>
+                <a href="story.html" class="hover:text-lime-400 transition-colors">Story</a>
+                <a href="cart.html" class="hover:text-lime-400 transition-colors">Cart</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-6">
+                <button class="hover:text-lime-400 transition-colors"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <a href="cart.html" class="hover:text-lime-400 transition-colors relative" aria-label="View cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="absolute -top-2 -right-2 bg-lime-400 text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                </a>
+            </div>
+
+            <button class="md:hidden text-2xl hover:text-lime-400" id="mobile-menu-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="fixed inset-0 bg-black/95 z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-2xl font-bold brand-font" id="mobile-menu">
+            <button class="absolute top-6 right-6 text-3xl text-gray-400 hover:text-white" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <a href="shop.html" class="mobile-link hover:text-lime-400">Shop</a>
+            <a href="collection.html" class="mobile-link hover:text-lime-400">Collections</a>
+            <a href="story.html" class="mobile-link hover:text-lime-400">Story</a>
+            <a href="cart.html" class="mobile-link hover:text-lime-400">Cart</a>
+        </div>
+    </nav>
+
+    <!-- Shop Hero -->
+    <section id="hero" class="relative min-h-[70vh] flex items-center justify-center pt-28 overflow-hidden">
+        <div class="floating-shape w-96 h-96 bg-lime-500/20 rounded-full top-1/4 left-10"></div>
+        <div class="floating-shape w-[500px] h-[500px] bg-blue-600/10 rounded-full bottom-10 right-0 animation-delay-2000"></div>
+        <div class="container max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 text-center lg:text-left">
+                <p class="text-lime-400 font-bold tracking-[0.3em] uppercase text-sm">Shop</p>
+                <h1 class="text-5xl md:text-6xl font-black leading-tight uppercase">Latest Drops</h1>
+                <p class="text-gray-400 text-lg max-w-xl">Cop the freshest heat before it's gone. Curated for performance, crafted for style.</p>
+            </div>
+            <div class="relative w-full max-w-[520px] aspect-square mx-auto">
+                <div class="absolute inset-0 rounded-full bg-lime-400/10 blur-[120px]"></div>
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=1200&auto=format&fit=crop" alt="Shop Hero" class="relative z-10 w-full h-full object-cover rounded-[28px] shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Highlights -->
+    <section id="products" class="py-16 bg-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10 reveal">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black uppercase mb-2">Latest Drops</h2>
+                    <p class="text-gray-400">Cop the freshest heat before it's gone.</p>
+                </div>
+                
+                <div class="flex gap-2 mt-4 md:mt-0 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+                    <button class="px-5 py-2 bg-white text-black rounded-full text-sm font-bold whitespace-nowrap">All</button>
+                    <button class="px-5 py-2 border border-gray-700 hover:border-lime-400 hover:text-lime-400 rounded-full text-sm font-bold transition-colors whitespace-nowrap">Lifestyle</button>
+                    <button class="px-5 py-2 border border-gray-700 hover:border-lime-400 hover:text-lime-400 rounded-full text-sm font-bold transition-colors whitespace-nowrap">Running</button>
+                    <button class="px-5 py-2 border border-gray-700 hover:border-lime-400 hover:text-lime-400 rounded-full text-sm font-bold transition-colors whitespace-nowrap">Limited</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
+                        <span class="absolute top-4 left-4 bg-lime-400 text-black text-xs font-bold px-2 py-1 rounded z-10">NEW</span>
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=1000&auto=format&fit=crop" alt="Shoe 1" class="w-full h-full object-cover object-center">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                            Add to Cart - $149
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-lime-400 transition-colors">Air Stryke 90</h3>
+                                <p class="text-gray-500 text-sm">Performance Running</p>
+                            </div>
+                            <span class="font-bold text-lg">$149</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal delay-100">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
+                         <span class="absolute top-4 left-4 bg-white text-black text-xs font-bold px-2 py-1 rounded z-10">BESTSELLER</span>
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1000&auto=format&fit=crop" alt="Shoe 2" class="w-full h-full object-cover object-center">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                            Add to Cart - $189
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-lime-400 transition-colors">Jordan Retro Low</h3>
+                                <p class="text-gray-500 text-sm">Urban Lifestyle</p>
+                            </div>
+                            <span class="font-bold text-lg">$189</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal delay-200">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?q=80&w=1000&auto=format&fit=crop" alt="Shoe 3" class="w-full h-full object-cover object-center">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                            Add to Cart - $129
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-lime-400 transition-colors">Vapor Max 2</h3>
+                                <p class="text-gray-500 text-sm">Daily Trainer</p>
+                            </div>
+                            <span class="font-bold text-lg">$129</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1556906781-9a412961d28c?q=80&w=1000&auto=format&fit=crop" alt="Shoe 4" class="w-full h-full object-cover object-center">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                            Add to Cart - $119
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-lime-400 transition-colors">Court Vision</h3>
+                                <p class="text-gray-500 text-sm">Skate & Street</p>
+                            </div>
+                            <span class="font-bold text-lg">$119</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal delay-100">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?q=80&w=1000&auto=format&fit=crop" alt="Shoe 5" class="w-full h-full object-cover object-center">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                            Add to Cart - $220
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-lime-400 transition-colors">Y-3 Runner</h3>
+                                <p class="text-gray-500 text-sm">High Fashion</p>
+                            </div>
+                            <span class="font-bold text-lg">$220</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal delay-200">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
+                        <span class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded z-10">LOW STOCK</span>
+                        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1000&auto=format&fit=crop" alt="Shoe 6" class="w-full h-full object-cover object-center">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                            Add to Cart - $159
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-lime-400 transition-colors">Ozone Glide</h3>
+                                <p class="text-gray-500 text-sm">Trail Running</p>
+                            </div>
+                            <span class="font-bold text-lg">$159</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

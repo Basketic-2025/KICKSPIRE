@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KICKSPIRE | Move Different</title>
-    <meta name="description" content="Premium streetwear and sneakers for the modern generation. Move Different with KICKSPIRE.">
-    
+    <title>KICKSPIRE | Collections</title>
+    <meta name="description" content="Explore curated collections from KICKSPIRE.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
@@ -63,72 +62,57 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <!-- Collections Hero -->
+    <section id="hero" class="relative min-h-[70vh] flex items-center justify-center pt-28 overflow-hidden">
         <div class="floating-shape w-96 h-96 bg-lime-500/20 rounded-full top-1/4 left-10"></div>
         <div class="floating-shape w-[500px] h-[500px] bg-blue-600/10 rounded-full bottom-10 right-0 animation-delay-2000"></div>
-
         <div class="container max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="space-y-6 reveal text-center lg:text-left order-2 lg:order-1">
-                <h2 class="text-lime-400 font-bold tracking-widest uppercase text-sm mb-2">Future Ready</h2>
-                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
-                    Step Into <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">The Future</span>
-                </h1>
-                <p class="text-gray-400 text-lg md:text-xl max-w-md mx-auto lg:mx-0 leading-relaxed">
-                    Engineered for the streets, built for performance. Experience the next evolution of footwear design.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                    <a href="shop.html" class="bg-lime-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-colors duration-300 shadow-[0_0_20px_rgba(190,242,100,0.4)]">
-                        Shop New Arrivals
-                    </a>
-                    <a href="collection.html" class="border border-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:border-lime-400 hover:text-lime-400 transition-colors duration-300 backdrop-blur-sm">
-                        View Collection
-                    </a>
-                </div>
+            <div class="space-y-6 text-center lg:text-left">
+                <p class="text-lime-400 font-bold tracking-[0.3em] uppercase text-sm">Collections</p>
+                <h1 class="text-5xl md:text-6xl font-black leading-tight uppercase">Curated Capsules</h1>
+                <p class="text-gray-400 text-lg max-w-xl">Dive into themed drops engineered for every vibe—urban minimal, performance, and midnight runs.</p>
             </div>
-
-            <div class="relative order-1 lg:order-2 flex justify-center items-center perspective-1000">
-                <div class="relative w-full max-w-[600px] aspect-square flex items-center justify-center" id="hero-image-container">
-                    <div class="absolute w-[70%] h-[70%] rounded-full border border-lime-400/30 animate-[spin_20s_linear_infinite]"></div>
-                    <div class="absolute w-[65%] h-[65%] rounded-full border border-dashed border-white/20 animate-[spin_25s_linear_infinite_reverse]"></div>
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop" 
-                         alt="KICKSPIRE Hero Sneaker" 
-                         class="w-[110%] h-auto object-contain drop-shadow-2xl transform transition-transform duration-100 will-change-transform"
-                         id="hero-shoe"
-                         style="filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); rotate: -15deg;">
-                </div>
+            <div class="relative w-full max-w-[520px] aspect-square mx-auto">
+                <div class="absolute inset-0 rounded-full bg-lime-400/10 blur-[120px]"></div>
+                <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=1200&auto=format&fit=crop" alt="Collections Hero" class="relative z-10 w-full h-full object-cover rounded-[28px] shadow-2xl">
             </div>
-        </div>
-
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-gray-500 text-sm">
-            Scroll to explore &darr;
         </div>
     </section>
 
-    <!-- Feature Strip -->
-    <section class="py-16 border-y border-white/5 bg-zinc-900/50 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="text-center group reveal">
-                <i class="fa-solid fa-wind text-3xl text-lime-400 mb-4 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-lg mb-1">Engineered Comfort</h3>
-                <p class="text-sm text-gray-400">Cloud-like sole technology</p>
+    <!-- Collections Horizontal Scroll -->
+    <section id="collections" class="py-12 bg-zinc-900 overflow-hidden">
+        <div class="pl-6 md:pl-12 mb-8 reveal">
+            <h2 class="text-3xl md:text-4xl font-black uppercase">Curated Collections</h2>
+        </div>
+        
+        <div class="flex overflow-x-auto snap-x-mandatory gap-6 px-6 md:px-12 pb-12 scrollbar-hide" style="scrollbar-width: none;">
+            <div class="snap-center shrink-0 w-[85vw] md:w-[600px] h-[400px] relative rounded-3xl overflow-hidden group cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=1000&auto=format&fit=crop" alt="Run" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
+                    <h3 class="text-3xl font-black uppercase mb-2">Urban Essentials</h3>
+                    <p class="text-gray-300 mb-4">Minimalist designs for the concrete jungle.</p>
+                    <span class="text-lime-400 font-bold group-hover:translate-x-2 transition-transform inline-block">Explore Collection &rarr;</span>
+                </div>
             </div>
-            <div class="text-center group reveal delay-100">
-                <i class="fa-solid fa-leaf text-3xl text-lime-400 mb-4 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-lg mb-1">Eco-Materials</h3>
-                <p class="text-sm text-gray-400">100% Recycled uppers</p>
+
+            <div class="snap-center shrink-0 w-[85vw] md:w-[600px] h-[400px] relative rounded-3xl overflow-hidden group cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=1000&auto=format&fit=crop" alt="Run" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
+                    <h3 class="text-3xl font-black uppercase mb-2">Performance Run</h3>
+                    <p class="text-gray-300 mb-4">Break your PR with advanced foam tech.</p>
+                    <span class="text-lime-400 font-bold group-hover:translate-x-2 transition-transform inline-block">Explore Collection &rarr;</span>
+                </div>
             </div>
-            <div class="text-center group reveal delay-200">
-                <i class="fa-solid fa-box-open text-3xl text-lime-400 mb-4 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-lg mb-1">30-Day Returns</h3>
-                <p class="text-sm text-gray-400">No questions asked</p>
+
+            <div class="snap-center shrink-0 w-[85vw] md:w-[600px] h-[400px] relative rounded-3xl overflow-hidden group cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1000&auto=format&fit=crop" alt="Run" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
+                    <h3 class="text-3xl font-black uppercase mb-2">Midnight Series</h3>
+                    <p class="text-gray-300 mb-4">Reflective details for night runners.</p>
+                    <span class="text-lime-400 font-bold group-hover:translate-x-2 transition-transform inline-block">Explore Collection &rarr;</span>
+                </div>
             </div>
-            <div class="text-center group reveal delay-300">
-                <i class="fa-solid fa-globe text-3xl text-lime-400 mb-4 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-lg mb-1">Global Shipping</h3>
-                <p class="text-sm text-gray-400">Free over $100</p>
-            </div>
+
         </div>
     </section>
 

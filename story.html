@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKSPIRE | Story</title>
+    <meta name="description" content="Discover the KICKSPIRE story and community.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased selection:bg-lime-400 selection:text-black">
+
+    <!-- Top Marquee -->
+    <div class="bg-lime-400 text-black text-xs font-bold py-2 overflow-hidden whitespace-nowrap marquee-container relative z-50">
+        <div class="marquee-content flex gap-8 w-max px-4 uppercase tracking-wider">
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> • 
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> •
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> •
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-[32px] z-40 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-tighter brand-font italic relative group">
+                KICKSPIRE
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-lime-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="shop.html" class="hover:text-lime-400 transition-colors">Shop</a>
+                <a href="collection.html" class="hover:text-lime-400 transition-colors">Collections</a>
+                <a href="story.html" class="hover:text-lime-400 transition-colors">Story</a>
+                <a href="cart.html" class="hover:text-lime-400 transition-colors">Cart</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-6">
+                <button class="hover:text-lime-400 transition-colors"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <a href="cart.html" class="hover:text-lime-400 transition-colors relative" aria-label="View cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="absolute -top-2 -right-2 bg-lime-400 text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                </a>
+            </div>
+
+            <button class="md:hidden text-2xl hover:text-lime-400" id="mobile-menu-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="fixed inset-0 bg-black/95 z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-2xl font-bold brand-font" id="mobile-menu">
+            <button class="absolute top-6 right-6 text-3xl text-gray-400 hover:text-white" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <a href="shop.html" class="mobile-link hover:text-lime-400">Shop</a>
+            <a href="collection.html" class="mobile-link hover:text-lime-400">Collections</a>
+            <a href="story.html" class="mobile-link hover:text-lime-400">Story</a>
+            <a href="cart.html" class="mobile-link hover:text-lime-400">Cart</a>
+        </div>
+    </nav>
+
+    <!-- Story Hero -->
+    <section id="hero" class="relative min-h-[70vh] flex items-center justify-center pt-28 overflow-hidden">
+        <div class="floating-shape w-96 h-96 bg-lime-500/20 rounded-full top-1/4 left-10"></div>
+        <div class="floating-shape w-[500px] h-[500px] bg-blue-600/10 rounded-full bottom-10 right-0 animation-delay-2000"></div>
+        <div class="container max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 text-center lg:text-left">
+                <p class="text-lime-400 font-bold tracking-[0.3em] uppercase text-sm">Story</p>
+                <h1 class="text-5xl md:text-6xl font-black leading-tight uppercase">More Than A Sneaker</h1>
+                <p class="text-gray-400 text-lg max-w-xl">Born in Tokyo and New York, we fuse performance tech with street culture. Every pair is designed to move different.</p>
+            </div>
+            <div class="relative w-full max-w-[520px] aspect-square mx-auto">
+                <div class="absolute inset-0 rounded-full bg-lime-400/10 blur-[120px]"></div>
+                <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=1200&auto=format&fit=crop" alt="Story Hero" class="relative z-10 w-full h-full object-cover rounded-[28px] shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story -->
+    <section id="story" class="py-16 max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative reveal">
+                <div class="absolute -inset-4 bg-lime-400/20 rounded-3xl blur-xl -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=1000&auto=format&fit=crop" alt="Brand Story" class="rounded-3xl w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="absolute -bottom-6 -right-6 bg-white text-black p-6 rounded-2xl shadow-xl max-w-[200px]">
+                    <p class="font-black text-2xl">100%</p>
+                    <p class="text-sm font-semibold leading-tight">Sustainable Materials Used Since 2023</p>
+                </div>
+            </div>
+            <div class="reveal delay-100">
+                <h2 class="text-4xl md:text-5xl font-black uppercase mb-6">More Than Just <br> A Sneaker.</h2>
+                <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+                    At KICKSPIRE, we believe movement is an art form. Born in the underground scenes of Tokyo and New York, our mission is to bridge the gap between high-performance athletics and high-street fashion.
+                </p>
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                    Every pair is crafted with zero-waste knitting technology and recycled ocean plastics. Look good, feel good, do good.
+                </p>
+                <a href="#" class="text-lime-400 font-bold text-lg hover:text-white transition-colors border-b border-lime-400 pb-1">Read Our Full Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-zinc-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-black text-center mb-16 uppercase reveal">The Hype is Real</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-black p-8 rounded-2xl border border-zinc-800 hover:border-lime-400/50 transition-colors reveal">
+                    <div class="flex text-lime-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-lg">"Honestly the most comfortable shoes I've ever owned. The aesthetic fits my techwear vibe perfectly."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
+                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        </div>
+                        <div>
+                            <p class="font-bold">Alex K.</p>
+                            <p class="text-xs text-gray-500">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-black p-8 rounded-2xl border border-zinc-800 hover:border-lime-400/50 transition-colors reveal delay-100">
+                    <div class="flex text-lime-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-lg">"Shipping was insanely fast to NYC. The quality on the Air Stryke 90 is unmatched for the price."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
+                             <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                        </div>
+                        <div>
+                            <p class="font-bold">Sarah J.</p>
+                            <p class="text-xs text-gray-500">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-black p-8 rounded-2xl border border-zinc-800 hover:border-lime-400/50 transition-colors reveal delay-200">
+                    <div class="flex text-lime-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 text-lg">"I was skeptical about the recycled materials but they feel premium. Will definitely cop the next drop."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
+                             <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="User">
+                        </div>
+                        <div>
+                            <p class="font-bold">Marcus T.</p>
+                            <p class="text-xs text-gray-500">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter / Drop List -->
+    <section id="newsletter" class="py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-black to-zinc-900"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-lime-400/10 rounded-full blur-[100px]"></div>
+
+        <div class="max-w-3xl mx-auto px-6 relative z-10 text-center reveal">
+            <h2 class="text-5xl md:text-6xl font-black uppercase mb-4">Don't Miss The Drop</h2>
+            <p class="text-xl text-gray-400 mb-10">Join 50,000+ others. Get early access to limited releases and exclusive discounts. No spam, only heat.</p>
+            
+            <form class="flex flex-col sm:flex-row gap-4">
+                <input type="email" placeholder="Enter your email" class="flex-1 bg-white/10 border border-white/20 rounded-full px-8 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-lime-400 focus:bg-black transition-all">
+                <button type="submit" class="bg-lime-400 text-black font-bold text-lg px-10 py-4 rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg">
+                    Join The List
+                </button>
+            </form>
+            <p class="mt-4 text-xs text-gray-600">By signing up, you agree to our Terms & Privacy Policy.</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
