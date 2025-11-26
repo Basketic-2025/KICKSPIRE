@@ -35,7 +35,7 @@
                 <a href="shop.html" class="hover:text-lime-400 transition-colors">Shop</a>
                 <a href="collection.html" class="hover:text-lime-400 transition-colors">Collections</a>
                 <a href="story.html" class="hover:text-lime-400 transition-colors">Story</a>
-                <a href="cart.html" class="hover:text-lime-400 transition-colors">Cart</a>
+                <a href="cart.html" class="hover:text-lime-400 transition-colors">Cart<span id="nav-count" class="ml-1 text-xs align-super"></span></a>
             </div>
 
             <div class="hidden md:flex items-center gap-6">
@@ -249,7 +249,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all"></div>
                         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 w-[90%] justify-center">
                             <button class="add-btn opacity-0 group-hover:opacity-100 bg-white text-black px-4 py-2 rounded-full font-bold text-xs shadow-lg hover:bg-lime-400 transition-all duration-300" data-quick="${item.id}">Quick View</button>
-                            <button class="add-btn opacity-0 group-hover:opacity-100 border border-white px-4 py-2 rounded-full font-bold text-xs text-white hover:border-lime-400 hover:text-lime-400 transition-all duration-300">Explore Drop</button>
+                            <button class="add-btn opacity-0 group-hover:opacity-100 border border-white px-4 py-2 rounded-full font-bold text-xs text-white hover:border-lime-400 hover:text-lime-400 transition-all duration-300" data-cart-add data-product-id="${item.id}" data-title="${item.title}" data-price="${item.price}" data-image="${item.image}">Explore Drop</button>
                         </div>
                     </div>
                     <div class="p-6">

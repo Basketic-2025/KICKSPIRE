@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body class="antialiased selection:bg-lime-400 selection:text-black">
 
@@ -36,7 +37,7 @@
                 <a href="shop.html" class="hover:text-lime-400 transition-colors">Shop</a>
                 <a href="collection.html" class="hover:text-lime-400 transition-colors">Collections</a>
                 <a href="story.html" class="hover:text-lime-400 transition-colors">Story</a>
-                <a href="cart.html" class="hover:text-lime-400 transition-colors">Cart</a>
+                <a href="cart.html" class="hover:text-lime-400 transition-colors">Cart<span id="nav-count" class="ml-1 text-xs align-super"></span></a>
             </div>
 
             <div class="hidden md:flex items-center gap-6">
@@ -118,146 +119,125 @@
     </footer>
 
     <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+window.addEventListener("DOMContentLoaded", () => {
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const closeMenuBtn = document.getElementById('close-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const toggleMenu = () => {
+    const isClosed = mobileMenu.classList.contains('translate-x-full');
+    mobileMenu.classList.toggle('translate-x-full', !isClosed);
+    document.body.style.overflow = isClosed ? 'hidden' : '';
+  };
+  mobileMenuBtn?.addEventListener('click', toggleMenu);
+  closeMenuBtn?.addEventListener('click', toggleMenu);
 
-        function toggleMenu() {
-            const isClosed = mobileMenu.classList.contains('translate-x-full');
-            mobileMenu.classList.toggle('translate-x-full', !isClosed);
-            document.body.style.overflow = isClosed ? 'hidden' : '';
-        }
+  let cartData = (window.cartStore && window.cartStore.get()) || [];
+  const cartList = document.getElementById('cart-list');
+  const summaryLines = document.getElementById('summary-lines');
+  const summaryTotal = document.getElementById('summary-total');
+  const shippingHint = document.getElementById('shipping-hint');
+  const navCount = document.getElementById('nav-count');
 
-        mobileMenuBtn?.addEventListener('click', toggleMenu);
-        closeMenuBtn?.addEventListener('click', toggleMenu);
+  const formatCurrency = (v) => `$${Number(v || 0).toFixed(0)}`;
 
-        const cartData = [
-            {
-                id: 'air-stryke-90',
-                title: 'Air Stryke 90',
-                price: 149,
-                img: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=1000&auto=format&fit=crop',
-                meta: 'Size 10 · Volt/Black'
-            },
-            {
-                id: 'jordan-retro-low',
-                title: 'Jordan Retro Low',
-                price: 189,
-                img: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1000&auto=format&fit=crop',
-                meta: 'Size 9.5 · Bone/White'
-            },
-            {
-                id: 'ozone-glide',
-                title: 'Ozone Glide',
-                price: 159,
-                img: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1000&auto=format&fit=crop',
-                meta: 'Size 11 · Crimson'
-            }
-        ];
+  function updateSummary() {
+    let subtotal = 0;
+    const counts = {};
+    document.querySelectorAll('[data-line-total]').forEach(el => {
+      const id = el.getAttribute('data-line-total');
+      const qty = Number(document.querySelector(`[data-qty-label="${id}"]`)?.textContent || 1);
+      const item = cartData.find(p => p.id === id);
+      if (item) {
+        subtotal += item.price * qty;
+        counts[id] = qty;
+        item.qty = qty;
+      }
+    });
+    summaryLines.innerHTML = `
+      <div class="flex justify-between"><span>Subtotal</span><span>${formatCurrency(subtotal)}</span></div>
+      <div class="flex justify-between text-gray-500"><span>Shipping</span><span>${subtotal >= 100 ? 'Free' : '$12'}</span></div>
+      <div class="flex justify-between text-gray-500"><span>Taxes</span><span>Calced at checkout</span></div>
+    `;
+    const shipping = subtotal >= 100 ? 0 : 12;
+    summaryTotal.textContent = formatCurrency(subtotal + shipping);
+    const diff = Math.max(0, 100 - subtotal);
+    shippingHint.textContent = diff === 0 ? "You've unlocked free shipping" : `You're $${diff.toFixed(0)} away`;
+    const totalItems = Object.values(counts).reduce((a, b) => a + b, 0);
+    if (navCount) navCount.textContent = totalItems || '';
+    if (window.cartStore) window.cartStore.save(cartData);
+  }
 
-        const cartList = document.getElementById('cart-list');
-        const summaryLines = document.getElementById('summary-lines');
-        const summaryTotal = document.getElementById('summary-total');
-        const shippingHint = document.getElementById('shipping-hint');
-        const navCount = document.getElementById('nav-count');
+  function renderCart() {
+    cartList.innerHTML = '';
+    if (!cartData.length) {
+      cartList.innerHTML = '<div class="p-8 border border-zinc-800 rounded-2xl bg-black/40 text-center text-gray-400">Your bag is empty.</div>';
+      updateSummary();
+      return;
+    }
+    cartData.forEach(item => {
+      const qty = item.qty || 1;
+      const row = document.createElement('div');
+      row.className = 'flex gap-4 p-4 bg-black/60 border border-zinc-800 rounded-2xl items-center';
+      row.innerHTML = `
+        <div class="w-28 h-28 rounded-xl overflow-hidden bg-zinc-900 shrink-0">
+          <img src="${item.image || item.img || ''}" alt="${item.title}" class="w-full h-full object-cover">
+        </div>
+        <div class="flex-1 space-y-2">
+          <div class="flex justify-between items-start gap-3">
+            <div>
+              <p class="text-sm uppercase tracking-[0.15em] text-gray-500">KICKSPIRE</p>
+              <h3 class="text-lg font-bold">${item.title}</h3>
+              <p class="text-gray-500 text-sm">${item.meta || 'Crafted for your next move'}</p>
+            </div>
+            <button class="text-gray-500 hover:text-white transition-colors" data-remove="${item.id}">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <button class="w-8 h-8 rounded-full border border-gray-700 hover:border-lime-400 text-sm" data-qty-change="-1" data-id="${item.id}">-</button>
+              <span class="font-semibold" data-qty-label="${item.id}">${qty}</span>
+              <button class="w-8 h-8 rounded-full border border-gray-700 hover:border-lime-400 text-sm" data-qty-change="1" data-id="${item.id}">+</button>
+            </div>
+            <p class="font-bold" data-line-total="${item.id}">${formatCurrency(item.price * qty)}</p>
+          </div>
+        </div>
+      `;
+      cartList.appendChild(row);
+    });
+    updateSummary();
+  }
 
-        function formatCurrency(value) {
-            return `$${value.toFixed(0)}`;
-        }
+  cartList.addEventListener('click', (e) => {
+    const removeId = e.target.closest('[data-remove]')?.getAttribute('data-remove');
+    if (removeId) {
+      const index = cartData.findIndex(item => item.id === removeId);
+      if (index !== -1) cartData.splice(index, 1);
+      if (window.cartStore) window.cartStore.save(cartData);
+      renderCart();
+      return;
+    }
+    const btn = e.target.closest('[data-qty-change]');
+    if (btn) {
+      const id = btn.getAttribute('data-id');
+      const delta = Number(btn.getAttribute('data-qty-change'));
+      const qtyLabel = document.querySelector(`[data-qty-label="${id}"]`);
+      let qty = Number(qtyLabel.textContent) + delta;
+      qty = Math.max(1, qty);
+      qtyLabel.textContent = qty;
+      const item = cartData.find(p => p.id === id);
+      if (item) {
+        item.qty = qty;
+        const line = document.querySelector(`[data-line-total="${id}"]`);
+        line.textContent = formatCurrency(item.price * qty);
+      }
+      updateSummary();
+    }
+  });
 
-        function renderCart() {
-            cartList.innerHTML = '';
-            cartData.forEach(item => {
-                const row = document.createElement('div');
-                row.className = 'flex gap-4 p-4 bg-black/60 border border-zinc-800 rounded-2xl items-center';
-                row.innerHTML = `
-                    <div class="w-28 h-28 rounded-xl overflow-hidden bg-zinc-900 shrink-0">
-                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex-1 space-y-2">
-                        <div class="flex justify-between items-start gap-3">
-                            <div>
-                                <p class="text-sm uppercase tracking-[0.15em] text-gray-500">KICKSPIRE</p>
-                                <h3 class="text-lg font-bold">${item.title}</h3>
-                                <p class="text-gray-500 text-sm">${item.meta}</p>
-                            </div>
-                            <button class="text-gray-500 hover:text-white transition-colors" data-remove="${item.id}">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <button class="w-8 h-8 rounded-full border border-gray-700 hover:border-lime-400 text-sm" data-qty-change="-1" data-id="${item.id}">-</button>
-                                <span class="font-semibold" data-qty-label="${item.id}">1</span>
-                                <button class="w-8 h-8 rounded-full border border-gray-700 hover:border-lime-400 text-sm" data-qty-change="1" data-id="${item.id}">+</button>
-                            </div>
-                            <p class="font-bold" data-line-total="${item.id}">${formatCurrency(item.price)}</p>
-                        </div>
-                    </div>
-                `;
-                cartList.appendChild(row);
-            });
-            updateSummary();
-        }
-
-        function updateSummary() {
-            let subtotal = 0;
-            const counts = {};
-            document.querySelectorAll('[data-line-total]').forEach(el => {
-                const id = el.getAttribute('data-line-total');
-                const qty = Number(document.querySelector(`[data-qty-label="${id}"]`)?.textContent || 1);
-                const item = cartData.find(p => p.id === id);
-                if (item) {
-                    subtotal += item.price * qty;
-                    counts[id] = qty;
-                }
-            });
-
-            summaryLines.innerHTML = `
-                <div class="flex justify-between"><span>Subtotal</span><span>${formatCurrency(subtotal)}</span></div>
-                <div class="flex justify-between text-gray-500"><span>Shipping</span><span>${subtotal >= 100 ? 'Free' : '$12'}</span></div>
-                <div class="flex justify-between text-gray-500"><span>Taxes</span><span>Calced at checkout</span></div>
-            `;
-
-            const shipping = subtotal >= 100 ? 0 : 12;
-            summaryTotal.textContent = formatCurrency(subtotal + shipping);
-            const diff = Math.max(0, 100 - subtotal);
-            shippingHint.textContent = diff === 0 ? "You've unlocked free shipping" : `You're $${diff.toFixed(0)} away`;
-            const totalItems = Object.values(counts).reduce((a, b) => a + b, 0);
-            if (navCount) navCount.textContent = totalItems;
-        }
-
-        cartList.addEventListener('click', (e) => {
-            const removeId = e.target.closest('[data-remove]')?.getAttribute('data-remove');
-            if (removeId) {
-                const index = cartData.findIndex(item => item.id === removeId);
-                if (index !== -1) cartData.splice(index, 1);
-                if (cartData.length === 0) {
-                    cartList.innerHTML = '<div class="p-8 border border-zinc-800 rounded-2xl bg-black/40 text-center text-gray-400">Your bag is empty.</div>';
-                } else {
-                    renderCart();
-                }
-                return;
-            }
-
-            const btn = e.target.closest('[data-qty-change]');
-            if (btn) {
-                const id = btn.getAttribute('data-id');
-                const delta = Number(btn.getAttribute('data-qty-change'));
-                const qtyLabel = document.querySelector(`[data-qty-label="${id}"]`);
-                let qty = Number(qtyLabel.textContent) + delta;
-                qty = Math.max(1, qty);
-                qtyLabel.textContent = qty;
-                const item = cartData.find(p => p.id === id);
-                if (item) {
-                    const line = document.querySelector(`[data-line-total="${id}"]`);
-                    line.textContent = formatCurrency(item.price * qty);
-                }
-                updateSummary();
-            }
-        });
-
-        renderCart();
-    </script>
+  renderCart();
+});
+</script>
 </body>
 </html>
+

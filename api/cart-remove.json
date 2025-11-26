@@ -1,0 +1,18 @@
+{
+  "status": "ok",
+  "cartId": "session-123",
+  "removed": {
+    "productId": "urban-1"
+  },
+  "cart": {
+    "items": [],
+    "totals": {
+      "subtotal": 0,
+      "shipping": 0,
+      "shippingThreshold": 100,
+      "shippingFree": false,
+      "tax": 0,
+      "grandTotal": 0
+    }
+  }
+}

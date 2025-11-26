@@ -1,0 +1,23 @@
+{
+  "cartId": "session-123",
+  "items": [
+    {
+      "productId": "urban-1",
+      "title": "Urban Essentials",
+      "price": 189,
+      "qty": 1,
+      "size": "9",
+      "color": "black",
+      "image": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=400&auto=format&fit=crop",
+      "subtotal": 189
+    }
+  ],
+  "totals": {
+    "subtotal": 189,
+    "shipping": 12,
+    "shippingThreshold": 100,
+    "shippingFree": false,
+    "tax": 0,
+    "grandTotal": 201
+  }
+}

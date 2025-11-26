@@ -1,0 +1,30 @@
+{
+  "status": "ok",
+  "cartId": "session-123",
+  "updated": {
+    "productId": "urban-1",
+    "qty": 2
+  },
+  "cart": {
+    "items": [
+      {
+        "productId": "urban-1",
+        "title": "Urban Essentials",
+        "price": 189,
+        "qty": 2,
+        "size": "9",
+        "color": "black",
+        "image": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=400&auto=format&fit=crop",
+        "subtotal": 378
+      }
+    ],
+    "totals": {
+      "subtotal": 378,
+      "shipping": 0,
+      "shippingThreshold": 100,
+      "shippingFree": true,
+      "tax": 0,
+      "grandTotal": 378
+    }
+  }
+}

@@ -35,7 +35,7 @@
                 <a href="shop.html" class="hover:text-lime-400 transition-colors">Shop</a>
                 <a href="collection.html" class="hover:text-lime-400 transition-colors">Collections</a>
                 <a href="story.html" class="hover:text-lime-400 transition-colors">Story</a>
-                <a href="cart.html" class="hover:text-lime-400 transition-colors">Cart</a>
+                <a href="cart.html" class="hover:text-lime-400 transition-colors">Cart<span id="nav-count" class="ml-1 text-xs align-super"></span></a>
             </div>
 
             <div class="hidden md:flex items-center gap-6">
@@ -97,7 +97,7 @@
                     <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
                         <span class="absolute top-4 left-4 bg-lime-400 text-black text-xs font-bold px-2 py-1 rounded z-10">NEW</span>
                         <img id="shop-featured-shoe" src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=1000&auto=format&fit=crop" alt="Shoe 1" class="w-full h-full object-contain">
-                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]" data-cart-add data-product-id="urban-1" data-title="Urban Essentials" data-price="149" data-image="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=1000&auto=format&fit=crop">
                             Add to Cart - $149
                         </button>
                     </div>
@@ -116,7 +116,7 @@
                     <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
                          <span class="absolute top-4 left-4 bg-white text-black text-xs font-bold px-2 py-1 rounded z-10">BESTSELLER</span>
                         <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1000&auto=format&fit=crop" alt="Shoe 2" class="w-full h-full object-cover object-center">
-                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]" data-cart-add data-product-id="performance-1" data-title="Performance Run" data-price="189" data-image="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1000&auto=format&fit=crop">
                             Add to Cart - $189
                         </button>
                     </div>
@@ -134,7 +134,7 @@
                 <div class="product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal delay-200">
                     <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
                         <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?q=80&w=1000&auto=format&fit=crop" alt="Shoe 3" class="w-full h-full object-cover object-center">
-                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]" data-cart-add data-product-id="urban-2" data-title="Vapor Max 2" data-price="129" data-image="https://images.unsplash.com/photo-1605348532760-6753d2c43329?q=80&w=1000&auto=format&fit=crop">
                             Add to Cart - $129
                         </button>
                     </div>
@@ -152,7 +152,7 @@
                 <div class="product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal">
                     <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
                         <img src="https://images.unsplash.com/photo-1556906781-9a412961d28c?q=80&w=1000&auto=format&fit=crop" alt="Shoe 4" class="w-full h-full object-cover object-center">
-                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]" data-cart-add data-product-id="urban-3" data-title="Court Vision" data-price="119" data-image="https://images.unsplash.com/photo-1556906781-9a412961d28c?q=80&w=1000&auto=format&fit=crop">
                             Add to Cart - $119
                         </button>
                     </div>
@@ -170,7 +170,7 @@
                 <div class="product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal delay-100">
                     <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
                         <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?q=80&w=1000&auto=format&fit=crop" alt="Shoe 5" class="w-full h-full object-cover object-center">
-                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]" data-cart-add data-product-id="performance-2" data-title="Y-3 Runner" data-price="220" data-image="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?q=80&w=1000&auto=format&fit=crop">
                             Add to Cart - $220
                         </button>
                     </div>
@@ -189,7 +189,7 @@
                     <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
                         <span class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded z-10">LOW STOCK</span>
                         <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1000&auto=format&fit=crop" alt="Shoe 6" class="w-full h-full object-cover object-center">
-                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]">
+                        <button class="add-btn opacity-0 absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-lime-400 transition-all duration-300 w-[80%]" data-cart-add data-product-id="performance-3" data-title="Ozone Glide" data-price="159" data-image="https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1000&auto=format&fit=crop">
                             Add to Cart - $159
                         </button>
                     </div>

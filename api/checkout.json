@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "cartId": "session-123",
+  "summary": {
+    "items": 2,
+    "subtotal": 388,
+    "shipping": 0,
+    "tax": 0,
+    "grandTotal": 388
+  },
+  "next": {
+    "paymentUrl": "/checkout/payment",
+    "reviewUrl": "/checkout/review"
+  }
+}

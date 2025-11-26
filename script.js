@@ -66,15 +66,12 @@
         // 4. Smooth Scroll for Anchor Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+                if (this.getAttribute('href') === '#') return;
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
@@ -89,6 +86,52 @@
                 navbar.classList.remove('shadow-lg');
                 navbar.style.background = 'rgba(24, 24, 27, 0.7)'; // Original glass style
             }
+        });
+
+        // 6. Cart store (localStorage-backed)
+        const CART_KEY = 'ks_cart_items';
+        const cartStore = {
+            get() {
+                try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+                catch (e) { return []; }
+            },
+            save(items) {
+                localStorage.setItem(CART_KEY, JSON.stringify(items));
+                this.updateBadge();
+            },
+            add(item) {
+                const items = this.get();
+                const found = items.find(i => i.id === item.id);
+                if (found) {
+                    found.qty += item.qty || 1;
+                } else {
+                    items.push({ ...item, qty: item.qty || 1 });
+                }
+                this.save(items);
+            },
+            updateBadge() {
+                const badge = document.getElementById('nav-count');
+                if (!badge) return;
+                const total = this.get().reduce((sum, i) => sum + (i.qty || 0), 0);
+                badge.textContent = total > 0 ? total : '';
+            }
+        };
+        window.cartStore = cartStore;
+        cartStore.updateBadge();
+
+        // 7. Add-to-cart wiring
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-cart-add]');
+            if (!btn) return;
+            e.preventDefault();
+            const { productId, title, price, image } = btn.dataset;
+            if (!productId) return;
+            cartStore.add({
+                id: productId,
+                title: title || 'Product',
+                price: Number(price) || 0,
+                image: image || '',
+            });
         });
 
     
