@@ -1,28 +1,48 @@
-# KICKSPIRE Codebase Notes & Guardrails
+# KICKSPIRE Codebase Notes (for agents)
 
-## Layout and assets
-- `index.html`: main marketing page with Tailwind CDN, Font Awesome, Google Fonts (Inter, Syne). Uses custom CSS from `styles.css`, IntersectionObserver animations from `script.js`, and hard-coded product cards. Keep icons/links intact.
-- `cart.html`: standalone cart page matching the site’s glassy, neon aesthetic; includes mobile menu toggle logic inline, preloaded cart items, quantity controls, summary, and free-shipping hint. Nav links point back to `index.html`.
-- `styles.css`: theme variables, marquee, glass effect, reveal animations, hover effects, custom scrollbar, reduced-motion handling. Stick to existing palette and typography.
-- `script.js`: handles mobile menu toggle, scroll reveal animations, hero parallax on desktop, smooth anchor scrolling, and navbar scroll effect. Avoid breaking IDs/classes it targets.
-- External assets: Tailwind via CDN (`@tailwindcss/browser@4`), Font Awesome CDN, Google Fonts. Images are pulled from Unsplash; no local assets.
+## Pages and layout
+- `index.html`: landing page; only hero + feature strip remain. Nav links to `shop.html`, `collection.html`, `story.html`, `cart.html`. Hero CTAs go to Shop and Collections. Uses Tailwind CDN, Font Awesome CDN, Google Fonts (Inter, Syne), custom styles in `styles.css`, behaviours in `script.js`.
+- `shop.html`: dedicated “Latest Drops” hero plus product cards. Add-to-cart buttons carry `data-cart-add` attributes for the cart store.
+- `collection.html`: collections hero, horizontal showcase cards, and a `#collection-grid` section with filters (category/size/color), sorting, item count, load-more with skeletons, quick-view modal hooks, and “Recently Viewed” (localStorage). “Explore Collection” links scroll here and preselect filters.
+- `story.html`: story page; links to full story.
+- `story-full.html`: expanded story with timeline, craft, community sections; uses the shared nav.
+- `cart.html`: cart page pulling items from the shared cart store; supports qty changes, remove, totals, free-shipping hint, empty state.
+- `cart.html`, `shop.html`, `collection.html`, `story.html`, `story-full.html`, `index.html`: nav includes text cart link with badge `#nav-count`.
 
-## Key behaviours
-- Marquee loops text at the top of every page; keep structure to preserve masking/animation.
-- Navbar has scroll glass effect; mobile menu slides in/out via `translate-x-full`.
-- Product cards rely on existing classes (`product-card`, `add-btn`, `reveal`, etc.) and hover states from CSS.
-- Cart icon on `index.html` must link to `cart.html` (fixed after prior mistake); leave badge markup unless intentionally updating counts.
+## Styling
+- `styles.css`: theme variables, glass nav, marquee, reveal animations, product card hovers, hero effects, scrollbar, reduced-motion overrides. Adds modal styles, skeleton shimmer, `#shop-featured-shoe` rotation/drop-shadow effect.
 
-## Constraints / rules to follow
-- Do **not** overwrite or truncate `index.html`/`styles.css`/`script.js`; preserve existing UI and styling. If adding features, integrate minimally and keep the visual language (black/zinc background, lime accents, bold Syne headings).
-- Use ASCII characters; replace special arrows with HTML entities (`&rarr;`, `&darr;`) if needed to avoid encoding glitches.
-- Avoid unnecessary refactors or reformatting; keep indentation/spacing consistent with current files.
-- When adding interactive elements, reuse existing patterns (Tailwind classes, simple vanilla JS) and ensure compatibility with `prefers-reduced-motion` considerations already present.
-- If adding pages or sections, ensure nav/menu links stay valid and mobile menu IDs/classes remain unchanged.
-- Remember user’s preference: “don’t overcomplicate, don’t overcheck; keep code blended with current style.”
+## Behaviour
+- `script.js`: mobile menu toggle, IntersectionObserver reveal, hero parallax (guarded), smooth anchor scroll (ignores `href="#"`), navbar scroll styling.
+- Cart store: localStorage key `ks_cart_items`; exposed as `window.cartStore` with `get/save/add/updateBadge`. Global click listener handles any `[data-cart-add]` button reading `data-product-id`, `data-title`, `data-price`, `data-image`.
+- Cart badge: `#nav-count` updated via cart store.
 
-## Quick file reference
-- Main page: `index.html`
-- Cart page: `cart.html`
+## Collection page JS (inline in `collection.html`)
+- Uses `collectionData` array to render grid with filters/sort and load-more. Applies filter pills (`data-filter`), size/color selects, sort select, clear button, item count.
+- Quick view modal uses `data-quick` on “Quick View” buttons.
+- “Explore Collection” links carry `data-filter-jump` to preselect a category and smooth-scroll to `#collection-grid`.
+- Recently viewed persisted in localStorage key `ks_recent` and rendered in a strip.
+
+## Cart page JS (inline in `cart.html`)
+- Loads cart from `window.cartStore.get()`, renders items with qty controls, remove, totals, free-shipping threshold. Persists changes back to the store. Renders empty state if no items.
+- Uses badge `#nav-count` for item count.
+
+## API stubs (static JSON under `api/`)
+- `products.json`: products with categories, sizes, colors, popularity, limited flags, and meta for pagination/filters/feature flags.
+- `collections.json`: collection slugs with hero, description, and product IDs.
+- `search.json`: stubbed search response with hints.
+- `feature-flags.json`: toggles for limited drops, low stock, quick view.
+- `cart.json`, `cart-add.json`, `cart-update.json`, `cart-remove.json`, `checkout.json`: sample cart/checkout responses (totals, thresholds).
+
+## Guardrails
+- Keep ASCII; use `&rarr;`, `&darr;` if needed.
+- Preserve existing visual language (black/zinc, lime accent, bold Syne) and IDs/classes targeted by JS.
+- Avoid overwriting whole files unless intentional; keep spacing/structure consistent.
+- When adding interactivity, follow existing vanilla JS patterns and reduced-motion considerations.
+- Nav/mobile menu IDs must stay (`mobile-menu-btn`, `close-menu-btn`, `mobile-menu`).
+
+## Quick references
+- Main JS: `script.js`
 - Styles: `styles.css`
-- Behaviours: `script.js`
+- Pages: `index.html`, `shop.html`, `collection.html`, `story.html`, `story-full.html`, `cart.html`
+- API stubs: `api/*.json`
