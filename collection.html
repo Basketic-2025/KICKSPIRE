@@ -87,7 +87,7 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
                     <h3 class="text-3xl font-black uppercase mb-2">Urban Essentials</h3>
                     <p class="text-gray-300 mb-4">Minimalist designs for the concrete jungle.</p>
-                    <span class="text-lime-400 font-bold group-hover:translate-x-2 transition-transform inline-block">Explore Collection &rarr;</span>
+                    <a href="#collection-grid" data-filter-jump="urban" class="text-lime-400 font-bold group-hover:translate-x-2 transition-transform inline-block">Explore Collection &rarr;</a>
                 </div>
             </div>
 
@@ -96,7 +96,7 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
                     <h3 class="text-3xl font-black uppercase mb-2">Performance Run</h3>
                     <p class="text-gray-300 mb-4">Break your PR with advanced foam tech.</p>
-                    <span class="text-lime-400 font-bold group-hover:translate-x-2 transition-transform inline-block">Explore Collection &rarr;</span>
+                    <a href="#collection-grid" data-filter-jump="performance" class="text-lime-400 font-bold group-hover:translate-x-2 transition-transform inline-block">Explore Collection &rarr;</a>
                 </div>
             </div>
 
@@ -105,13 +105,316 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
                     <h3 class="text-3xl font-black uppercase mb-2">Midnight Series</h3>
                     <p class="text-gray-300 mb-4">Reflective details for night runners.</p>
-                    <span class="text-lime-400 font-bold group-hover:translate-x-2 transition-transform inline-block">Explore Collection &rarr;</span>
+                    <a href="#collection-grid" data-filter-jump="night" class="text-lime-400 font-bold group-hover:translate-x-2 transition-transform inline-block">Explore Collection &rarr;</a>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <!-- Collection Grid -->
+    <section id="collection-grid" class="py-16 bg-bg">
+        <div class="max-w-7xl mx-auto px-6 space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 reveal">
+                <div>
+                    <p class="text-lime-400 font-bold uppercase tracking-[0.3em] text-sm">Collections</p>
+                    <h2 class="text-4xl md:text-5xl font-black uppercase">All Capsules</h2>
+                    <p class="text-gray-400 mt-2">Explore every drop in one view.</p>
+                </div>
+                <div class="flex flex-wrap gap-3 items-center">
+                    <div class="flex gap-2" id="filter-category">
+                        <button class="px-4 py-2 bg-white text-black rounded-full text-sm font-bold whitespace-nowrap pill-active" data-filter="all">All</button>
+                        <button class="px-4 py-2 border border-gray-700 hover:border-lime-400 hover:text-lime-400 rounded-full text-sm font-bold transition-colors whitespace-nowrap" data-filter="urban">Urban</button>
+                        <button class="px-4 py-2 border border-gray-700 hover:border-lime-400 hover:text-lime-400 rounded-full text-sm font-bold transition-colors whitespace-nowrap" data-filter="performance">Performance</button>
+                        <button class="px-4 py-2 border border-gray-700 hover:border-lime-400 hover:text-lime-400 rounded-full text-sm font-bold transition-colors whitespace-nowrap" data-filter="night">Night</button>
+                    </div>
+                    <select id="sort-select" class="bg-zinc-900 border border-gray-700 text-sm px-4 py-2 rounded-full font-semibold focus:border-lime-400 focus:outline-none">
+                        <option value="default">Sort</option>
+                        <option value="newest">Newest</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                    </select>
+                    <select id="size-select" class="bg-zinc-900 border border-gray-700 text-sm px-4 py-2 rounded-full font-semibold focus:border-lime-400 focus:outline-none">
+                        <option value="all">Size</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                    <select id="color-select" class="bg-zinc-900 border border-gray-700 text-sm px-4 py-2 rounded-full font-semibold focus:border-lime-400 focus:outline-none">
+                        <option value="all">Color</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="volt">Volt</option>
+                        <option value="crimson">Crimson</option>
+                    </select>
+                    <button id="clear-filters" class="px-4 py-2 border border-gray-700 hover:border-lime-400 hover:text-lime-400 rounded-full text-sm font-bold transition-colors whitespace-nowrap">Clear</button>
+                    <span id="item-count" class="text-gray-500 text-sm">6 items</span>
+                </div>
+            </div>
+
+            <div id="collection-grid-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            <div id="skeletons" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+                <div class="product-card bg-zinc-900 rounded-2xl overflow-hidden skeleton aspect-[4/5]"></div>
+                <div class="product-card bg-zinc-900 rounded-2xl overflow-hidden skeleton aspect-[4/5]"></div>
+                <div class="product-card bg-zinc-900 rounded-2xl overflow-hidden skeleton aspect-[4/5]"></div>
+            </div>
+            <div class="flex items-center justify-center gap-4">
+                <button id="load-more" class="px-6 py-3 rounded-full border border-gray-700 hover:border-lime-400 hover:text-lime-400 font-bold text-sm transition-colors">Load more</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick View Modal -->
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal" id="quick-modal">
+        <div class="modal-card">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <p id="modal-badge" class="text-xs font-bold uppercase text-lime-400"></p>
+                    <h3 id="modal-title" class="text-2xl font-black"></h3>
+                    <p id="modal-price" class="text-lg text-gray-300"></p>
+                </div>
+                <button id="close-modal" class="text-gray-400 hover:text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div class="bg-zinc-900 rounded-2xl overflow-hidden">
+                    <img id="modal-image" src="" alt="" class="w-full h-full object-cover">
+                </div>
+                <div class="space-y-4">
+                    <p class="text-gray-400" id="modal-desc"></p>
+                    <div>
+                        <p class="text-sm text-gray-500 mb-2">Select size</p>
+                        <div class="flex flex-wrap gap-2" id="modal-sizes"></div>
+                    </div>
+                    <button class="w-full bg-lime-400 text-black font-bold py-3 rounded-xl hover:bg-white transition-colors">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recently Viewed -->
+    <section class="py-12 bg-zinc-900/50">
+        <div class="max-w-7xl mx-auto px-6 space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-lime-400 font-bold uppercase tracking-[0.3em] text-sm">Recently Viewed</p>
+                    <h3 class="text-2xl font-black">You might like</h3>
+                </div>
+                <span id="recent-count" class="text-sm text-gray-500"></span>
+            </div>
+            <div id="recent-list" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
+    <script>
+        const collectionData = [
+            {id:'urban-1', title:'Urban Essentials', price:189, category:'urban', colors:['black'], sizes:['8','9','10'], badge:'URBAN', image:'https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=1000&auto=format&fit=crop', popularity:90, desc:'Minimalist street-ready fits.'},
+            {id:'performance-1', title:'Performance Run', price:199, category:'performance', colors:['white'], sizes:['8','9','10','11'], badge:'PERFORMANCE', image:'https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=1000&auto=format&fit=crop', popularity:95, desc:'Engineered for speed days.'},
+            {id:'night-1', title:'Midnight Series', price:210, category:'night', colors:['black'], sizes:['7','8','9'], badge:'NIGHT', image:'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1000&auto=format&fit=crop', popularity:80, desc:'Reflective and storm-ready.'},
+            {id:'urban-2', title:'Concrete Loop', price:175, category:'urban', colors:['white'], sizes:['6','7','8'], badge:'URBAN', image:'https://images.unsplash.com/photo-1528701800489-20be9c1c98c6?q=80&w=1200&auto=format&fit=crop', popularity:70, desc:'Breathable knit built for daily commutes.'},
+            {id:'performance-2', title:'Sprint Lab', price:205, category:'performance', colors:['crimson'], sizes:['9','10','11'], badge:'PERFORMANCE', image:'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200&auto=format&fit=crop', popularity:88, desc:'Race-day tuned with responsive foam.'},
+            {id:'night-2', title:'Stealth Reflect', price:195, category:'night', colors:['black'], sizes:['8','9','10'], badge:'NIGHT', image:'https://images.unsplash.com/photo-1528701800489-20be9c1c98c6?q=80&w=1200&auto=format&fit=crop', popularity:76, desc:'Visibility-forward with weather guard.'},
+            {id:'urban-3', title:'Volt City', price:185, category:'urban', colors:['volt'], sizes:['7','8','9'], badge:'URBAN', image:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop', popularity:83, desc:'Color-pop statement for the block.'},
+            {id:'performance-3', title:'Aero Tempo', price:215, category:'performance', colors:['black'], sizes:['9','10','11'], badge:'PERFORMANCE', image:'https://images.unsplash.com/photo-1605348532760-6753d2c43329?q=80&w=1200&auto=format&fit=crop', popularity:92, desc:'Max airflow with lockdown support.'}
+        ];
+
+        const gridEl = document.getElementById('collection-grid-list');
+        const itemCountEl = document.getElementById('item-count');
+        const loadMoreBtn = document.getElementById('load-more');
+        const skeletons = document.getElementById('skeletons');
+        const categoryFilters = document.querySelectorAll('#filter-category button');
+        const sizeSelect = document.getElementById('size-select');
+        const colorSelect = document.getElementById('color-select');
+        const sortSelect = document.getElementById('sort-select');
+        const clearBtn = document.getElementById('clear-filters');
+        const recentList = document.getElementById('recent-list');
+        const recentCount = document.getElementById('recent-count');
+        let visibleCount = 6;
+        let activeCategory = 'all';
+
+        function renderCards(data) {
+            gridEl.innerHTML = '';
+            data.slice(0, visibleCount).forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = `product-card group relative bg-zinc-900 rounded-2xl overflow-hidden reveal ${idx > 0 ? 'delay-100' : ''}`;
+                card.innerHTML = `
+                    <div class="relative aspect-[4/5] overflow-hidden bg-zinc-800">
+                        <span class="absolute top-4 left-4 bg-lime-400 text-black text-xs font-bold px-2 py-1 rounded z-10">${item.badge}</span>
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all"></div>
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 w-[90%] justify-center">
+                            <button class="add-btn opacity-0 group-hover:opacity-100 bg-white text-black px-4 py-2 rounded-full font-bold text-xs shadow-lg hover:bg-lime-400 transition-all duration-300" data-quick="${item.id}">Quick View</button>
+                            <button class="add-btn opacity-0 group-hover:opacity-100 border border-white px-4 py-2 rounded-full font-bold text-xs text-white hover:border-lime-400 hover:text-lime-400 transition-all duration-300">Explore Drop</button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-lime-400 transition-colors">${item.title}</h3>
+                                <p class="text-gray-500 text-sm">${item.desc}</p>
+                            </div>
+                            <span class="font-bold text-lg">$${item.price}</span>
+                        </div>
+                    </div>
+                `;
+                card.classList.add('active');
+                gridEl.appendChild(card);
+            });
+            itemCountEl.textContent = `${Math.min(visibleCount, data.length)} of ${data.length} items`;
+            loadMoreBtn.style.display = visibleCount >= data.length ? 'none' : 'inline-flex';
+        }
+
+        function applyFilters() {
+            let filtered = collectionData.filter(item => {
+                const catOk = activeCategory === 'all' || item.category === activeCategory;
+                const sizeVal = sizeSelect.value;
+                const sizeOk = sizeVal === 'all' || item.sizes.includes(sizeVal);
+                const colorVal = colorSelect.value;
+                const colorOk = colorVal === 'all' || item.colors.includes(colorVal);
+                return catOk && sizeOk && colorOk;
+            });
+            const sortVal = sortSelect.value;
+            if (sortVal === 'price-asc') filtered.sort((a,b)=>a.price-b.price);
+            if (sortVal === 'price-desc') filtered.sort((a,b)=>b.price-a.price);
+            if (sortVal === 'popular') filtered.sort((a,b)=>b.popularity-a.popularity);
+            renderCards(filtered);
+        }
+
+        categoryFilters.forEach(btn=>{
+            btn.addEventListener('click', ()=>{
+                categoryFilters.forEach(b=>b.classList.remove('pill-active','bg-white','text-black'));
+                btn.classList.add('pill-active','bg-white','text-black');
+                activeCategory = btn.dataset.filter;
+                visibleCount = 6;
+                applyFilters();
+            });
+        });
+
+        [sizeSelect,colorSelect,sortSelect].forEach(sel=>{
+            sel.addEventListener('change', ()=>{
+                visibleCount = 6;
+                applyFilters();
+            });
+        });
+
+        clearBtn.addEventListener('click', ()=>{
+            activeCategory = 'all';
+            sizeSelect.value = 'all';
+            colorSelect.value = 'all';
+            sortSelect.value = 'default';
+            visibleCount = 6;
+            categoryFilters.forEach((b,i)=>{
+                b.classList.toggle('pill-active', i===0);
+                b.classList.toggle('bg-white', i===0);
+                b.classList.toggle('text-black', i===0);
+            });
+            applyFilters();
+        });
+
+        loadMoreBtn.addEventListener('click', ()=>{
+            skeletons.classList.remove('hidden');
+            loadMoreBtn.disabled = true;
+            setTimeout(()=>{
+                skeletons.classList.add('hidden');
+                visibleCount += 3;
+                loadMoreBtn.disabled = false;
+                applyFilters();
+            }, 700);
+        });
+
+        const modal = document.getElementById('quick-modal');
+        const backdrop = document.getElementById('modal-backdrop');
+        const closeModalBtn = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalPrice = document.getElementById('modal-price');
+        const modalImage = document.getElementById('modal-image');
+        const modalBadge = document.getElementById('modal-badge');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalSizes = document.getElementById('modal-sizes');
+
+        function openModal(item){
+            modalTitle.textContent = item.title;
+            modalPrice.textContent = `$${item.price}`;
+            modalImage.src = item.image;
+            modalImage.alt = item.title;
+            modalBadge.textContent = item.badge;
+            modalDesc.textContent = item.desc;
+            modalSizes.innerHTML = '';
+            item.sizes.forEach(size=>{
+                const b=document.createElement('button');
+                b.className='px-3 py-2 rounded-full border border-gray-700 hover:border-lime-400 hover:text-lime-400 text-sm';
+                b.textContent=size;
+                modalSizes.appendChild(b);
+            });
+            modal.classList.add('open');
+            backdrop.classList.add('open');
+            recordRecent(item);
+        }
+        function closeModal(){
+            modal.classList.remove('open');
+            backdrop.classList.remove('open');
+        }
+        closeModalBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+
+        gridEl.addEventListener('click',(e)=>{
+            const quickId = e.target.closest('[data-quick]')?.dataset.quick;
+            if(!quickId) return;
+            const item = collectionData.find(x=>x.id===quickId);
+            if(item) openModal(item);
+        });
+
+        // Handle explore links to preselect filters and scroll
+        document.querySelectorAll('[data-filter-jump]').forEach(link=>{
+            link.addEventListener('click',(e)=>{
+                e.preventDefault();
+                const target = link.getAttribute('data-filter-jump');
+                const btn = Array.from(categoryFilters).find(b=>b.dataset.filter === target);
+                if(btn){
+                    categoryFilters.forEach(b=>b.classList.remove('pill-active','bg-white','text-black'));
+                    btn.classList.add('pill-active','bg-white','text-black');
+                    activeCategory = target;
+                    visibleCount = 6;
+                    applyFilters();
+                }
+                document.getElementById('collection-grid').scrollIntoView({behavior:'smooth'});
+            });
+        });
+
+        function recordRecent(item){
+            const key='ks_recent';
+            let list=[];
+            try{ list=JSON.parse(localStorage.getItem(key))||[];}catch(e){}
+            list=[item,...list.filter(x=>x.id!==item.id)].slice(0,5);
+            localStorage.setItem(key, JSON.stringify(list));
+            renderRecent(list);
+        }
+        function renderRecent(list){
+            recentList.innerHTML='';
+            if(!list || !list.length){
+                recentList.innerHTML='<p class="text-gray-500 text-sm">No recent views yet.</p>';
+                recentCount.textContent='';
+                return;
+            }
+            recentCount.textContent=`${list.length} saved`;
+            list.forEach(it=>{
+                const card=document.createElement('div');
+                card.className='bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden';
+                card.innerHTML=`<img src="${it.image}" alt="${it.title}" class="w-full h-28 object-cover">
+                                 <div class="p-3">
+                                     <p class="text-sm font-bold">${it.title}</p>
+                                     <p class="text-xs text-gray-500">$${it.price}</p>
+                                 </div>`;
+                recentList.appendChild(card);
+            });
+        }
+        renderRecent(JSON.parse(localStorage.getItem('ks_recent')||'[]'));
+        applyFilters();
+    </script>
 </body>
 </html>
