@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "page": 1,
+    "pageSize": 10,
+    "total": 8,
+    "sort": "popularity"
+  },
+  "filters": {
+    "categories": ["urban", "performance", "night"],
+    "sizes": ["6", "7", "8", "9", "10", "11"],
+    "colors": ["black", "white", "volt", "crimson"]
+  },
+  "featureFlags": {
+    "limitedDrops": true,
+    "showLowStockBadge": true
+  },
+  "products": [
+    {
+      "id": "urban-1",
+      "title": "Urban Essentials",
+      "price": 189,
+      "category": "urban",
+      "colors": ["black"],
+      "sizes": ["8", "9", "10"],
+      "popularity": 90,
+      "badge": "URBAN",
+      "image": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=1000&auto=format&fit=crop",
+      "desc": "Minimalist street-ready fits.",
+      "limited": false
+    },
+    {
+      "id": "performance-1",
+      "title": "Performance Run",
+      "price": 199,
+      "category": "performance",
+      "colors": ["white"],
+      "sizes": ["8", "9", "10", "11"],
+      "popularity": 95,
+      "badge": "PERFORMANCE",
+      "image": "https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=1000&auto=format&fit=crop",
+      "desc": "Engineered for speed days.",
+      "limited": true
+    },
+    {
+      "id": "night-1",
+      "title": "Midnight Series",
+      "price": 210,
+      "category": "night",
+      "colors": ["black"],
+      "sizes": ["7", "8", "9"],
+      "popularity": 80,
+      "badge": "NIGHT",
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1000&auto=format&fit=crop",
+      "desc": "Reflective and storm-ready.",
+      "limited": true
+    },
+    {
+      "id": "urban-2",
+      "title": "Concrete Loop",
+      "price": 175,
+      "category": "urban",
+      "colors": ["white"],
+      "sizes": ["6", "7", "8"],
+      "popularity": 70,
+      "badge": "URBAN",
+      "image": "https://images.unsplash.com/photo-1528701800489-20be9c1c98c6?q=80&w=1200&auto=format&fit=crop",
+      "desc": "Breathable knit built for daily commutes.",
+      "limited": false
+    },
+    {
+      "id": "performance-2",
+      "title": "Sprint Lab",
+      "price": 205,
+      "category": "performance",
+      "colors": ["crimson"],
+      "sizes": ["9", "10", "11"],
+      "popularity": 88,
+      "badge": "PERFORMANCE",
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200&auto=format&fit=crop",
+      "desc": "Race-day tuned with responsive foam.",
+      "limited": false
+    },
+    {
+      "id": "night-2",
+      "title": "Stealth Reflect",
+      "price": 195,
+      "category": "night",
+      "colors": ["black"],
+      "sizes": ["8", "9", "10"],
+      "popularity": 76,
+      "badge": "NIGHT",
+      "image": "https://images.unsplash.com/photo-1528701800489-20be9c1c98c6?q=80&w=1200&auto=format&fit=crop",
+      "desc": "Visibility-forward with weather guard.",
+      "limited": true
+    },
+    {
+      "id": "urban-3",
+      "title": "Volt City",
+      "price": 185,
+      "category": "urban",
+      "colors": ["volt"],
+      "sizes": ["7", "8", "9"],
+      "popularity": 83,
+      "badge": "URBAN",
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop",
+      "desc": "Color-pop statement for the block.",
+      "limited": false
+    },
+    {
+      "id": "performance-3",
+      "title": "Aero Tempo",
+      "price": 215,
+      "category": "performance",
+      "colors": ["black"],
+      "sizes": ["9", "10", "11"],
+      "popularity": 92,
+      "badge": "PERFORMANCE",
+      "image": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?q=80&w=1200&auto=format&fit=crop",
+      "desc": "Max airflow with lockdown support.",
+      "limited": false
+    }
+  ]
+}

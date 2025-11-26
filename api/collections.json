@@ -1,0 +1,28 @@
+{
+  "collections": [
+    {
+      "slug": "urban-essentials",
+      "title": "Urban Essentials",
+      "hero": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=1200&auto=format&fit=crop",
+      "description": "Minimalist designs for the concrete jungle.",
+      "products": ["urban-1", "urban-2", "urban-3"]
+    },
+    {
+      "slug": "performance-run",
+      "title": "Performance Run",
+      "hero": "https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=1200&auto=format&fit=crop",
+      "description": "Break your PR with advanced foam tech.",
+      "products": ["performance-1", "performance-2", "performance-3"]
+    },
+    {
+      "slug": "midnight-series",
+      "title": "Midnight Series",
+      "hero": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1200&auto=format&fit=crop",
+      "description": "Reflective details for night runners.",
+      "products": ["night-1", "night-2"]
+    }
+  ],
+  "meta": {
+    "total": 3
+  }
+}
