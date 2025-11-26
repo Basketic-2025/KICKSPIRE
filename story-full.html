@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKSPIRE | Full Story</title>
+    <meta name="description" content="The full KICKSPIRE story—roots, craft, and future.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased selection:bg-lime-400 selection:text-black">
+
+    <!-- Top Marquee -->
+    <div class="bg-lime-400 text-black text-xs font-bold py-2 overflow-hidden whitespace-nowrap marquee-container relative z-50">
+        <div class="marquee-content flex gap-8 w-max px-4 uppercase tracking-wider">
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> • 
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> •
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> •
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-[32px] z-40 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-tighter brand-font italic relative group">
+                KICKSPIRE
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-lime-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="shop.html" class="hover:text-lime-400 transition-colors">Shop</a>
+                <a href="collection.html" class="hover:text-lime-400 transition-colors">Collections</a>
+                <a href="story.html" class="hover:text-lime-400 transition-colors">Story</a>
+                <a href="cart.html" class="hover:text-lime-400 transition-colors">Cart</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-6">
+                <button class="hover:text-lime-400 transition-colors"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <button class="md:hidden text-2xl hover:text-lime-400" id="mobile-menu-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="fixed inset-0 bg-black/95 z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-2xl font-bold brand-font" id="mobile-menu">
+            <button class="absolute top-6 right-6 text-3xl text-gray-400 hover:text-white" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <a href="shop.html" class="mobile-link hover:text-lime-400">Shop</a>
+            <a href="collection.html" class="mobile-link hover:text-lime-400">Collections</a>
+            <a href="story.html" class="mobile-link hover:text-lime-400">Story</a>
+            <a href="cart.html" class="mobile-link hover:text-lime-400">Cart</a>
+        </div>
+    </nav>
+
+    <!-- Full Story Hero -->
+    <section id="hero" class="relative min-h-[70vh] flex items-center justify-center pt-28 overflow-hidden">
+        <div class="floating-shape w-[420px] h-[420px] bg-lime-500/15 rounded-full top-1/4 -left-10"></div>
+        <div class="floating-shape w-[520px] h-[520px] bg-blue-600/10 rounded-full bottom-10 -right-10 animation-delay-2000"></div>
+        <div class="container max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 text-center lg:text-left">
+                <p class="text-lime-400 font-bold tracking-[0.3em] uppercase text-sm">Full Story</p>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-tight uppercase">From Underground to Global</h1>
+                <p class="text-gray-400 text-lg max-w-xl">Born in Tokyo’s backstreets, sharpened in New York’s boroughs, KICKSPIRE blends performance tech with avant street aesthetics.</p>
+            </div>
+            <div class="relative w-full max-w-[520px] aspect-[4/5] mx-auto overflow-hidden rounded-[28px] shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop" alt="Founders" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 text-sm text-white font-semibold">Founder Lab · 2019</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-16 bg-zinc-900/60 border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-6 space-y-10">
+            <div class="text-center space-y-2">
+                <h2 class="text-4xl md:text-5xl font-black uppercase">Our Timeline</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Key moments that shaped the brand and the community we serve.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-black/60 border border-zinc-800 rounded-2xl p-6 space-y-3 reveal">
+                    <p class="text-lime-400 font-bold text-sm uppercase tracking-[0.3em]">2019</p>
+                    <h3 class="text-xl font-bold">Prototype Zero</h3>
+                    <p class="text-gray-400 text-sm">First zero-waste knit upper tested on Tokyo couriers, tuned for all-day grind.</p>
+                </div>
+                <div class="bg-black/60 border border-zinc-800 rounded-2xl p-6 space-y-3 reveal delay-100">
+                    <p class="text-lime-400 font-bold text-sm uppercase tracking-[0.3em]">2021</p>
+                    <h3 class="text-xl font-bold">Global Drop</h3>
+                    <p class="text-gray-400 text-sm">Cross-continental launch with recycled ocean plastics and reflective tech layers.</p>
+                </div>
+                <div class="bg-black/60 border border-zinc-800 rounded-2xl p-6 space-y-3 reveal delay-200">
+                    <p class="text-lime-400 font-bold text-sm uppercase tracking-[0.3em]">2024</p>
+                    <h3 class="text-xl font-bold">Community Labs</h3>
+                    <p class="text-gray-400 text-sm">Open-source design sprints with athletes, artists, and climate scientists.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Craft -->
+    <section class="py-16 max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-4 reveal">
+                <p class="text-lime-400 font-bold uppercase text-sm tracking-[0.3em]">Craft</p>
+                <h2 class="text-4xl md:text-5xl font-black uppercase">Material Alchemy</h2>
+                <p class="text-gray-400 text-lg">We engineer midsoles with nitrogen-infused foam for bounce, and weave uppers from recycled fibers to cut waste. Every stitch is mapped for airflow and lockdown.</p>
+                <ul class="space-y-2 text-gray-300">
+                    <li>• Zero-waste knit uppers with zoned flex</li>
+                    <li>• Reflective hits for night runners</li>
+                    <li>• Bio-based dyes to reduce chemical load</li>
+                </ul>
+            </div>
+            <div class="relative w-full max-w-[520px] aspect-square mx-auto overflow-hidden rounded-[28px] shadow-2xl reveal delay-100">
+                <img src="https://plus.unsplash.com/premium_photo-1677697324912-604955d7f29c?q=80&w&auto=format&fit=crop" alt="Materials" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 text-sm text-white font-semibold">Material Lab · Sustainable stack</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="py-16 bg-zinc-900/50">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative reveal order-2 lg:order-1">
+                <div class="absolute -inset-4 bg-lime-400/15 rounded-3xl blur-2xl -z-10"></div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=800&auto=format&fit=crop" class="rounded-2xl object-cover h-48 w-full">
+                    <img src="https://images.unsplash.com/photo-1507537509458-b8312d35a233?q=80&w=800&auto=format&fit=crop" class="rounded-2xl object-cover h-48 w-full">
+                    <img src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?q=80&w=800&auto=format&fit=crop" class="rounded-2xl object-cover h-48 w-full">
+                    <img src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?q=80&w=800&auto=format&fit=crop" class="rounded-2xl object-cover h-48 w-full">
+                </div>
+            </div>
+            <div class="space-y-4 reveal order-1 lg:order-2">
+                <p class="text-lime-400 font-bold uppercase text-sm tracking-[0.3em]">Community</p>
+                <h2 class="text-4xl md:text-5xl font-black uppercase">Built With You</h2>
+                <p class="text-gray-400 text-lg">We co-create with runners, skaters, DJs, and designers. Each release is pressure-tested in real life before it hits shelves.</p>
+                <div class="flex gap-6 text-sm text-gray-300">
+                    <div>
+                        <p class="text-2xl font-black text-white">50k+</p>
+                        <p>Subscribers</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-black text-white">32</p>
+                        <p>City Labs</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-black text-white">0%</p>
+                        <p>Compromise</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
