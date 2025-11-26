@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKSPIRE | Cart</title>
+    <meta name="description" content="Review your KICKSPIRE picks and checkout in style.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased selection:bg-lime-400 selection:text-black">
+
+    <!-- Top Marquee -->
+    <div class="bg-lime-400 text-black text-xs font-bold py-2 overflow-hidden whitespace-nowrap marquee-container relative z-50">
+        <div class="marquee-content flex gap-8 w-max px-4 uppercase tracking-wider">
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> • 
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> •
+            <span>Free Shipping Over $100</span> • <span>New Drop Every Friday</span> • <span>30-Day Returns</span> • <span>Limited Edition Collabs</span> • <span>Worldwide Shipping</span> • <span>Move Different</span> •
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-[32px] z-40 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-tighter brand-font italic relative group">
+                KICKSPIRE
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-lime-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="index.html#hero" class="hover:text-lime-400 transition-colors">New Arrivals</a>
+                <a href="index.html#products" class="hover:text-lime-400 transition-colors">Shop</a>
+                <a href="index.html#collections" class="hover:text-lime-400 transition-colors">Collections</a>
+                <a href="index.html#story" class="hover:text-lime-400 transition-colors">Story</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-6">
+                <a href="index.html#products" class="hover:text-lime-400 transition-colors"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <button class="hover:text-lime-400 transition-colors relative">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="absolute -top-2 -right-2 bg-lime-400 text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center" id="nav-count">0</span>
+                </button>
+            </div>
+
+            <button class="md:hidden text-2xl hover:text-lime-400" id="mobile-menu-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="fixed inset-0 bg-black/95 z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-2xl font-bold brand-font" id="mobile-menu">
+            <button class="absolute top-6 right-6 text-3xl text-gray-400 hover:text-white" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <a href="index.html#hero" class="mobile-link hover:text-lime-400">New Arrivals</a>
+            <a href="index.html#products" class="mobile-link hover:text-lime-400">Shop</a>
+            <a href="index.html#collections" class="mobile-link hover:text-lime-400">Collections</a>
+            <a href="index.html#story" class="mobile-link hover:text-lime-400">Story</a>
+        </div>
+    </nav>
+
+    <main class="pt-28 relative overflow-hidden">
+        <div class="floating-shape w-80 h-80 bg-lime-500/15 rounded-full top-20 -left-10"></div>
+        <div class="floating-shape w-[420px] h-[420px] bg-blue-600/10 rounded-full -bottom-20 -right-10"></div>
+
+        <section class="max-w-7xl mx-auto px-6 pb-24 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
+                <div>
+                    <p class="text-sm uppercase tracking-[0.2em] text-lime-400 font-bold">Checkout flow</p>
+                    <h1 class="text-4xl md:text-5xl font-black tracking-tight">Your Cart</h1>
+                    <p class="text-gray-400 mt-2">Review your picks before they vanish.</p>
+                </div>
+                <a href="index.html#products" class="inline-flex items-center gap-2 text-sm font-semibold border border-gray-700 px-4 py-2 rounded-full hover:border-lime-400 hover:text-lime-400 transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Continue Shopping
+                </a>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div class="lg:col-span-2 space-y-6" id="cart-list"></div>
+
+                <aside class="bg-black/60 border border-zinc-800 rounded-2xl p-6 space-y-6 backdrop-blur">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xl font-bold">Order Summary</h2>
+                        <span class="text-xs uppercase tracking-[0.25em] text-gray-500">Secure</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-zinc-900 border border-zinc-800 rounded-xl p-3">
+                        <div class="w-10 h-10 rounded-full bg-lime-400 text-black flex items-center justify-center font-black">%</div>
+                        <div class="text-sm">
+                            <p class="font-semibold">Free shipping over $100</p>
+                            <p class="text-gray-500" id="shipping-hint">You're $0 away</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 text-sm text-gray-300" id="summary-lines"></div>
+                    <div class="flex items-center justify-between text-lg font-bold">
+                        <span>Total</span>
+                        <span id="summary-total">$0</span>
+                    </div>
+                    <button class="w-full bg-lime-400 text-black font-bold py-3 rounded-xl hover:bg-white transition-colors">Checkout</button>
+                    <p class="text-xs text-gray-500">All duties included. You can still edit items at the next step.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black pt-14 pb-10 border-t border-zinc-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+                <a href="index.html" class="text-2xl font-black brand-font italic mb-2 block">KICKSPIRE</a>
+                <p class="text-gray-500">Move different. Crafted for the streets and the future.</p>
+            </div>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-lime-400 hover:text-black transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-lime-400 hover:text-black transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-lime-400 hover:text-black transition-colors"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            mobileMenu.classList.toggle('translate-x-full', !isClosed);
+            document.body.style.overflow = isClosed ? 'hidden' : '';
+        }
+
+        mobileMenuBtn?.addEventListener('click', toggleMenu);
+        closeMenuBtn?.addEventListener('click', toggleMenu);
+
+        const cartData = [
+            {
+                id: 'air-stryke-90',
+                title: 'Air Stryke 90',
+                price: 149,
+                img: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=1000&auto=format&fit=crop',
+                meta: 'Size 10 · Volt/Black'
+            },
+            {
+                id: 'jordan-retro-low',
+                title: 'Jordan Retro Low',
+                price: 189,
+                img: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1000&auto=format&fit=crop',
+                meta: 'Size 9.5 · Bone/White'
+            },
+            {
+                id: 'ozone-glide',
+                title: 'Ozone Glide',
+                price: 159,
+                img: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1000&auto=format&fit=crop',
+                meta: 'Size 11 · Crimson'
+            }
+        ];
+
+        const cartList = document.getElementById('cart-list');
+        const summaryLines = document.getElementById('summary-lines');
+        const summaryTotal = document.getElementById('summary-total');
+        const shippingHint = document.getElementById('shipping-hint');
+        const navCount = document.getElementById('nav-count');
+
+        function formatCurrency(value) {
+            return `$${value.toFixed(0)}`;
+        }
+
+        function renderCart() {
+            cartList.innerHTML = '';
+            cartData.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'flex gap-4 p-4 bg-black/60 border border-zinc-800 rounded-2xl items-center';
+                row.innerHTML = `
+                    <div class="w-28 h-28 rounded-xl overflow-hidden bg-zinc-900 shrink-0">
+                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 space-y-2">
+                        <div class="flex justify-between items-start gap-3">
+                            <div>
+                                <p class="text-sm uppercase tracking-[0.15em] text-gray-500">KICKSPIRE</p>
+                                <h3 class="text-lg font-bold">${item.title}</h3>
+                                <p class="text-gray-500 text-sm">${item.meta}</p>
+                            </div>
+                            <button class="text-gray-500 hover:text-white transition-colors" data-remove="${item.id}">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <button class="w-8 h-8 rounded-full border border-gray-700 hover:border-lime-400 text-sm" data-qty-change="-1" data-id="${item.id}">-</button>
+                                <span class="font-semibold" data-qty-label="${item.id}">1</span>
+                                <button class="w-8 h-8 rounded-full border border-gray-700 hover:border-lime-400 text-sm" data-qty-change="1" data-id="${item.id}">+</button>
+                            </div>
+                            <p class="font-bold" data-line-total="${item.id}">${formatCurrency(item.price)}</p>
+                        </div>
+                    </div>
+                `;
+                cartList.appendChild(row);
+            });
+            updateSummary();
+        }
+
+        function updateSummary() {
+            let subtotal = 0;
+            const counts = {};
+            document.querySelectorAll('[data-line-total]').forEach(el => {
+                const id = el.getAttribute('data-line-total');
+                const qty = Number(document.querySelector(`[data-qty-label="${id}"]`)?.textContent || 1);
+                const item = cartData.find(p => p.id === id);
+                if (item) {
+                    subtotal += item.price * qty;
+                    counts[id] = qty;
+                }
+            });
+
+            summaryLines.innerHTML = `
+                <div class="flex justify-between"><span>Subtotal</span><span>${formatCurrency(subtotal)}</span></div>
+                <div class="flex justify-between text-gray-500"><span>Shipping</span><span>${subtotal >= 100 ? 'Free' : '$12'}</span></div>
+                <div class="flex justify-between text-gray-500"><span>Taxes</span><span>Calced at checkout</span></div>
+            `;
+
+            const shipping = subtotal >= 100 ? 0 : 12;
+            summaryTotal.textContent = formatCurrency(subtotal + shipping);
+            const diff = Math.max(0, 100 - subtotal);
+            shippingHint.textContent = diff === 0 ? "You've unlocked free shipping" : `You're $${diff.toFixed(0)} away`;
+            const totalItems = Object.values(counts).reduce((a, b) => a + b, 0);
+            if (navCount) navCount.textContent = totalItems;
+        }
+
+        cartList.addEventListener('click', (e) => {
+            const removeId = e.target.closest('[data-remove]')?.getAttribute('data-remove');
+            if (removeId) {
+                const index = cartData.findIndex(item => item.id === removeId);
+                if (index !== -1) cartData.splice(index, 1);
+                if (cartData.length === 0) {
+                    cartList.innerHTML = '<div class="p-8 border border-zinc-800 rounded-2xl bg-black/40 text-center text-gray-400">Your bag is empty.</div>';
+                } else {
+                    renderCart();
+                }
+                return;
+            }
+
+            const btn = e.target.closest('[data-qty-change]');
+            if (btn) {
+                const id = btn.getAttribute('data-id');
+                const delta = Number(btn.getAttribute('data-qty-change'));
+                const qtyLabel = document.querySelector(`[data-qty-label="${id}"]`);
+                let qty = Number(qtyLabel.textContent) + delta;
+                qty = Math.max(1, qty);
+                qtyLabel.textContent = qty;
+                const item = cartData.find(p => p.id === id);
+                if (item) {
+                    const line = document.querySelector(`[data-line-total="${id}"]`);
+                    line.textContent = formatCurrency(item.price * qty);
+                }
+                updateSummary();
+            }
+        });
+
+        renderCart();
+    </script>
+</body>
+</html>
