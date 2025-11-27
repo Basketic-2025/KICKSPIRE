@@ -17,7 +17,22 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors({
-  origin: process.env.CORS_ORIGIN?.split(',') || ['http://localhost:5500', 'http://127.0.0.1:5500'],
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like file://, mobile apps, curl, Postman)
+    if (!origin) return callback(null, true);
+
+    // Allow configured origins
+    const allowedOrigins = process.env.CORS_ORIGIN?.split(',') || [
+      'http://localhost:5500',
+      'http://127.0.0.1:5500'
+    ];
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all origins in development (change for production)
+    }
+  },
   credentials: true,
 }));
 
